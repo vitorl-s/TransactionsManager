@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {FAB} from 'react-native-paper';
 import {View, Text} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import moment from 'moment';
 import styles from './styles';
 import Transactions from '../../components/Transactions';
 
 const Home = () => {
+  const navigation = useNavigation();
   const [transactions, setTransactions] = useState([
     {value: -19, date: '01-08-2020', desc: 'Lorem Ipsum', id: 1},
     {value: -16, date: '04-08-2020', desc: 'Lorem Ipsum', id: 2},
@@ -13,7 +15,7 @@ const Home = () => {
     {value: 13, date: '07-08-2020', desc: 'Lorem Ipsum', id: 7},
     {value: 18, date: '02-08-2020', desc: 'Lorem Ipsum', id: 10},
     {value: 11, date: '09-08-2020', desc: 'Lorem Ipsum', id: 11},
-    {value: 111, date: '09-08-2020', desc: 'Lorem Ipsum', id: 12},
+    {value: 11111, date: '09-08-2020', desc: 'Lorem Ipsum', id: 12},
   ]);
   const [balance, setBalance] = useState(0);
 
@@ -59,7 +61,7 @@ const Home = () => {
       <FAB
         style={styles.FAB}
         icon="plus"
-        onPress={() => console.log('Pressed')}
+        onPress={() => navigation.navigate('AddTransactions')}
       />
     </View>
   );

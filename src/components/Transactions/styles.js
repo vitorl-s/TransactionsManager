@@ -20,17 +20,18 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   valueContainer: {
-    flex: 0.4,
+    flex: 0.6,
+    marginRight: 10,
   },
   positiveValue: {
     marginTop: 10,
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
     color: Colors.PositiveTransaction,
   },
   negativeValue: {
     marginTop: 10,
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
     color: Colors.NegativeTransaction,
   },

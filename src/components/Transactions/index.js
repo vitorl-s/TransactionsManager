@@ -12,12 +12,14 @@ const Transactions = ({transactions}) => {
               style={
                 item.value > 0 ? styles.positiveValue : styles.negativeValue
               }>
-              R$ {item.value}
+              R$ {item.value.toFixed(2).toString().replace('.', ',')}
             </Text>
             <Text style={styles.date}>{item.date.toString()}</Text>
           </View>
           <View style={styles.descContainer}>
-            <Text style={styles.desc}>{item.desc + item.desc + item.desc}</Text>
+            <Text numberOfLines={4} style={styles.desc}>
+              {item.desc + item.desc + item.desc}
+            </Text>
           </View>
         </View>
       </View>
@@ -28,7 +30,7 @@ const Transactions = ({transactions}) => {
     <FlatList
       data={transactions}
       contentContainerStyle={{paddingBottom: 80, paddingTop: 20}}
-      keyExtractor={(item) => item.id.toString()}
+      keyExtractor={(item, index) => index.toString()}
       renderItem={renderTransaction}
     />
   );
