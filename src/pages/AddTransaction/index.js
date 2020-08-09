@@ -2,9 +2,11 @@ import React, {useState} from 'react';
 import moment from 'moment';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 import {Colors} from '../../constants/Colors';
+import {SaveTransaction} from '../../redux/actions/transaction';
 
 const AddTransaction = () => {
   const [value, setValue] = useState();
@@ -13,6 +15,7 @@ const AddTransaction = () => {
   const [date, setDate] = useState(parsedDate);
   const [show, setShow] = useState(false);
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -21,6 +24,13 @@ const AddTransaction = () => {
   };
 
   const handleButtonPress = () => {
+    const formatedValue = parseFloat(value);
+    const transaction = {
+      date,
+      value: formatedValue,
+      desc,
+    };
+    dispatch(SaveTransaction(transaction));
     navigation.navigate('Home');
   };
 

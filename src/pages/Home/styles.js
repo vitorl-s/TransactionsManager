@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   noTransactionsContainer: {
-    flex: 1, 
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -40,6 +40,10 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  listContainer: {
+    paddingTop: 20,
+    paddingBottom: 20,
   },
 });
 

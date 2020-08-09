@@ -1,15 +1,16 @@
 import {TRANSACTIONS} from '../constants/index';
 
 const initialState = {
-  transactions: [{}],
+  transactions: [],
 };
 
 const TransactionReducer = (state = initialState, action) => {
   switch (action.type) {
     case TRANSACTIONS:
       return {
-        language: action.transaction,
-      };
+        ...state,
+        transactions: [...state.transactions, action.transaction],
+      }
     default:
       return state;
   }

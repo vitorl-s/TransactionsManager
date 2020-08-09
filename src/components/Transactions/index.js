@@ -1,8 +1,31 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, FlatList, Text} from 'react-native';
+import {useSelector} from 'react-redux';
+import moment from 'moment';
 import styles from './styles';
 
-const Transactions = ({transactions}) => {
+const Transactions = () => {
+  const transactionList = useSelector((item) => item.transactions.transactions);
+  const [transactions, setTransactions] = useState(transactionList);
+
+  const sortTransactions = () => {
+    let sortedTransactions = transactionList;
+    sortedTransactions.map((item) => {
+      item.date = moment(item.date, 'DD/MM/YYYY');
+    });
+    const sortedArray = sortedTransactions.sort((a, b) => b.date.diff(a.date));
+    sortedArray.map((item) => {
+      item.date = moment(item.date, 'DD-MM-YYYY').format('DD/MM/YYYY');
+    });
+    setTransactions(sortedArray);
+  };
+
+  useEffect(() => {
+    if (transactionList.length > 0) {
+      sortTransactions();
+    }
+  }, [transactionList]);
+
   const renderTransaction = ({item}) => {
     return (
       <View style={styles.cardContainer}>
@@ -18,7 +41,7 @@ const Transactions = ({transactions}) => {
           </View>
           <View style={styles.descContainer}>
             <Text numberOfLines={4} style={styles.desc}>
-              {item.desc + item.desc + item.desc}
+              {item.desc}
             </Text>
           </View>
         </View>
@@ -29,6 +52,7 @@ const Transactions = ({transactions}) => {
   return (
     <FlatList
       data={transactions}
+      extraData={transactionList}
       contentContainerStyle={{paddingBottom: 80, paddingTop: 20}}
       keyExtractor={(item, index) => index.toString()}
       renderItem={renderTransaction}

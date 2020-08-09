@@ -4,7 +4,7 @@ import {AsyncStorage} from 'react-native';
 import TransactionReducer from './reducers/transaction';
 
 const rootReducer = combineReducers({
-  language: TransactionReducer,
+  transactions: TransactionReducer,
 });
 
 const persistConfig = {
