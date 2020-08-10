@@ -1,5 +1,6 @@
 import {StyleSheet, Platform} from 'react-native';
 import {Colors} from '../../constants/Colors';
+import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,6 +23,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     color: Colors.Text,
     fontSize: 22,
+    paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 10,
     fontWeight: 'bold',
   },
   FAB: {

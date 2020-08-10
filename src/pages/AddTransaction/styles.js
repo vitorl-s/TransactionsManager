@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
   inputLabel: {
     color: Colors.Label,
     fontSize: 18,
+    marginTop: 10,
     fontWeight: 'bold',
   },
   input: {
