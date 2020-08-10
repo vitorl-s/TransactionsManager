@@ -300,7 +300,7 @@ exports[`should render HomePage with no transactions message 1`] = `
                           }
                         }
                       >
-                        Lista de transações
+                        Transações
                       </Text>
                       <View
                         style={
@@ -343,7 +343,7 @@ exports[`should render HomePage with no transactions message 1`] = `
                             }
                           }
                         >
-                          Você ainda não possui transações cadastradas.
+                          Você ainda não possui transações cadastradas
                         </Text>
                       </View>
                       <View
@@ -799,7 +799,7 @@ exports[`should render HomePage with transactions 1`] = `
                           }
                         }
                       >
-                        Lista de transações
+                        Transações
                       </Text>
                       <View
                         style={
@@ -928,7 +928,7 @@ exports[`should render HomePage with transactions 1`] = `
                                       }
                                     >
                                       R$ 
-                                      12,50
+                                      12.5
                                     </Text>
                                     <Text
                                       style={

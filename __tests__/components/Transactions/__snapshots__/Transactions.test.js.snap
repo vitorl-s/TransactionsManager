@@ -377,7 +377,7 @@ exports[`should render Transactions Component 1`] = `
                                   }
                                 >
                                   R$ 
-                                  40,50
+                                  40.5
                                 </Text>
                                 <Text
                                   style={

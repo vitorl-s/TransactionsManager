@@ -37,7 +37,7 @@ const Transactions = () => {
               style={
                 item.value > 0 ? styles.positiveValue : styles.negativeValue
               }>
-              R$ {item.value}
+              R$ {item.value.toFixed(2).toString().replace('.', ',')}
             </Text>
             <Text style={styles.date}>{item.date.toString()}</Text>
           </View>

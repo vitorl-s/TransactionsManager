@@ -447,7 +447,7 @@ exports[`AddTransactionPage tests should render AddTransaction Page 1`] = `
                                     ]
                                   }
                                 >
-                                  09/08/2020
+                                  10/08/2020
                                 </Text>
                               </View>
                               <Modal
@@ -533,8 +533,8 @@ exports[`AddTransactionPage tests should render AddTransaction Page 1`] = `
                                             }
                                           >
                                             <RCTDatePicker
-                                              date={1596942000000}
-                                              maximumDate={1609380000000}
+                                              date={1597028400000}
+                                              maximumDate={1597028400000}
                                               mode="date"
                                               onChange={[Function]}
                                               onResponderTerminationRequest={[Function]}
