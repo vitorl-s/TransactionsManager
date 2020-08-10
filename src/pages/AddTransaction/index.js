@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import moment from 'moment';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import DatePicker from 'react-native-datepicker';
+import {View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
@@ -13,25 +13,27 @@ const AddTransaction = () => {
   const [desc, setDesc] = useState();
   const parsedDate = moment().format('DD/MM/YYYY');
   const [date, setDate] = useState(parsedDate);
-  const [show, setShow] = useState(false);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
-  const onChange = (event, selectedDate) => {
+  const onChange = (selectedDate) => {
     const currentDate = selectedDate || date;
-    setShow(false);
-    setDate(moment(currentDate).format('DD/MM/YYYY'));
+    setDate(moment(currentDate, 'DD-MM-YYYY').format('DD/MM/YYYY'));
   };
 
   const handleButtonPress = () => {
-    const formatedValue = parseFloat(value);
-    const transaction = {
-      date,
-      value: formatedValue,
-      desc,
-    };
-    dispatch(SaveTransaction(transaction));
-    navigation.navigate('Home');
+    if (date && desc && value) {
+      const formatedValue = parseFloat(value);
+      const transaction = {
+        date,
+        value: formatedValue,
+        desc,
+      };
+      dispatch(SaveTransaction(transaction));
+      navigation.navigate('Home');
+    } else {
+      Alert.alert('Preencha todos os campos para criar sua transação');
+    }
   };
 
   return (
@@ -57,18 +59,24 @@ const AddTransaction = () => {
           onChangeText={(description) => setDesc(description)}
         />
         <Text style={styles.inputLabel}>Data</Text>
-        <TouchableOpacity onPress={() => setShow(true)}>
-          <Text style={styles.input}>{date}</Text>
-        </TouchableOpacity>
-        {show && (
-          <DateTimePicker
-            maximumDate={new Date()}
-            value={new Date()}
+        <TouchableOpacity>
+          <DatePicker
+            date={date}
+            style={styles.datepicker}
             mode="date"
-            display="spinner"
-            onChange={onChange}
+            androidMode="spinner"
+            showIcon={false}
+            format="DD/MM/YYYY"
+            maxDate="31/12/2020"
+            confirmBtnText="Confirmar"
+            cancelBtnText="Cancelar"
+            customStyles={{
+              dateInput: styles.dateInput,
+              dateText: styles.dateText,
+            }}
+            onDateChange={onChange}
           />
-        )}
+        </TouchableOpacity>
       </View>
       <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
         <Text style={styles.buttonText}>Adicionar Transação</Text>

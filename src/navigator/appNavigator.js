@@ -6,7 +6,6 @@ import AddTransaction from '../pages/AddTransaction';
 import {Colors} from '../constants/Colors';
 
 const Stack = createStackNavigator();
-
 const TransactionsManagerApp = () => {
   return (
     <NavigationContainer>
@@ -19,7 +18,7 @@ const TransactionsManagerApp = () => {
           })}
         />
         <Stack.Screen
-          name="AddTransactions"
+          name="AddTransaction"
           component={AddTransaction}
           options={() => ({
             headerShown: true,

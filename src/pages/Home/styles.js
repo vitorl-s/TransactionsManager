@@ -9,14 +9,9 @@ const styles = StyleSheet.create({
   },
   balance: {
     justifyContent: 'center',
-    width: '85%',
     alignItems: 'center',
     alignSelf: 'center',
-    padding: 5,
-    paddingBottom: 15,
     marginTop: 15,
-    borderRadius: 25,
-    backgroundColor: 'white',
   },
   title: {
     alignSelf: 'center',
@@ -37,7 +32,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   noTransactions: {
-    color: 'white',
+    color: Colors.Text,
     fontSize: 16,
     fontWeight: 'bold',
   },

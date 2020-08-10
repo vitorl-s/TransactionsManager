@@ -38,6 +38,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  datepicker: {
+    width: 115,
+  },
+  dateInput: {
+    borderWidth: 0,
+  },
+  dateText: {
+    color: Colors.Text,
+  },
 });
 
 export default styles;
