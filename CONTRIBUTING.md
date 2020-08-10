@@ -2,19 +2,21 @@
 
 In this section you will learn how to contribute with this project
 
-### First step
+# How to contribute
+
+#### First step
 
 Create your own fork of this project
 
-### Second step 
+#### Second step 
 
 Create your own branch inside the fork
 
-### Third step
+#### Third step
 
 Code!!! When you finish your changes submit a Pull Request.
 
-### Pull request
+# Pull request
 
 As soon as your changes are ready, you can open a Pull Request.
 
