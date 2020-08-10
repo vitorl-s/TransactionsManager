@@ -11,6 +11,9 @@ yarn
 
 Run the app:
 ```sh
+cd ios
+pod install
+cd ..
 npx react-native run-ios
 ```
 
