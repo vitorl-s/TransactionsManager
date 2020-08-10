@@ -5,7 +5,6 @@ import {useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 import Transactions from '../../components/Transactions';
-import {Colors} from '../../constants/Colors';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -23,9 +22,9 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Lista de transações</Text>
+      <Text style={styles.title}>Transações</Text>
       <View style={styles.balance}>
-        <Text style={{fontSize: 30, fontWeight: 'bold', color: Colors.Text}}>
+        <Text style={styles.balanceText}>
           Saldo: R$ {balance.toFixed(2).toString().replace('.', ',')}
         </Text>
       </View>
@@ -36,7 +35,7 @@ const Home = () => {
       ) : (
         <View style={styles.noTransactionsContainer}>
           <Text style={styles.noTransactions}>
-            Você ainda não possui transações cadastradas.
+            Você ainda não possui transações cadastradas
           </Text>
         </View>
       )}

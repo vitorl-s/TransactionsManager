@@ -46,6 +46,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     color: Colors.Text,
   },
+  listContainer: {
+    paddingBottom: 80,
+    paddingTop: 20,
+  },
 });
 
 export default styles;

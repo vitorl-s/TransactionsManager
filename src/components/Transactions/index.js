@@ -9,15 +9,17 @@ const Transactions = () => {
   const [transactions, setTransactions] = useState(transactionList);
 
   const sortTransactions = () => {
-    let sortedTransactions = transactionList;
+    let allTransactions = transactionList;
+    allTransactions.map((item) => {
+      item.date = moment(item.date, 'DD-MM-YYYY HH:mm:ss');
+    });
+    const sortedTransactions = allTransactions.sort((a, b) =>
+      b.date.diff(a.date),
+    );
     sortedTransactions.map((item) => {
-      item.date = moment(item.date, 'DD/MM/YYYY');
+      item.date = moment(item.date).format('DD/MM/YYYY');
     });
-    const sortedArray = sortedTransactions.sort((a, b) => b.date.diff(a.date));
-    sortedArray.map((item) => {
-      item.date = moment(item.date, 'DD-MM-YYYY').format('DD/MM/YYYY');
-    });
-    setTransactions(sortedArray);
+    setTransactions(sortedTransactions);
   };
 
   useEffect(() => {
@@ -35,7 +37,7 @@ const Transactions = () => {
               style={
                 item.value > 0 ? styles.positiveValue : styles.negativeValue
               }>
-              R$ {item.value.toFixed(2).toString().replace('.', ',')}
+              R$ {item.value}
             </Text>
             <Text style={styles.date}>{item.date.toString()}</Text>
           </View>
@@ -53,7 +55,7 @@ const Transactions = () => {
     <FlatList
       data={transactions}
       extraData={transactionList}
-      contentContainerStyle={{paddingBottom: 80, paddingTop: 20}}
+      contentContainerStyle={styles.listContainer}
       keyExtractor={(item, index) => index.toString()}
       renderItem={renderTransaction}
     />

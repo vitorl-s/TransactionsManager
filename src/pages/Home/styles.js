@@ -13,6 +13,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 15,
   },
+  balanceText: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: Colors.Text,
+  },
   title: {
     alignSelf: 'center',
     color: Colors.Text,

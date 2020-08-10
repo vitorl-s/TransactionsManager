@@ -23,9 +23,13 @@ const AddTransaction = () => {
 
   const handleButtonPress = () => {
     if (date && desc && value) {
+      const createdAt = moment();
+      const formatedDate = moment(date, 'DD/MM/YYYY');
+      const daysDiff = createdAt.diff(formatedDate, 'days');
+      const finalDate = createdAt.subtract('days', daysDiff);
       const formatedValue = parseFloat(value);
       const transaction = {
-        date,
+        date: finalDate,
         value: formatedValue,
         desc,
       };
@@ -67,7 +71,7 @@ const AddTransaction = () => {
             androidMode="spinner"
             showIcon={false}
             format="DD/MM/YYYY"
-            maxDate="31/12/2020"
+            maxDate={moment().format('DD/MM/YYYY').toString()}
             confirmBtnText="Confirmar"
             cancelBtnText="Cancelar"
             customStyles={{
