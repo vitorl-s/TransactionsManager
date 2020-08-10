@@ -34,7 +34,11 @@ The app should be running/installing on the simulator or on your device by now.
 cd TransactionsManager
 yarn test -u
 ```
-<i> Note: If tests fail, change node version to 10.22.0
+<i> Note: If tests fail, change node version to 10.22.0 </i>
+
+## Solution plan
+
+The solution involves using React Native base components with stylesheet to show transactions and balance, to add transactions and format date type react-native-datepicker and momentjs were used. To store the transactions items redux and redux-persist were used. To navigate between screens react-navigation was necessary.
 
 ## Contributing
 
