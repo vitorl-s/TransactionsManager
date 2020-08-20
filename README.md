@@ -36,10 +36,6 @@ yarn test -u
 ```
 <i> Note: If tests fail, change node version to 10.22.0 </i>
 
-## Solution plan
-
-The solution involves using React Native base components with stylesheet to show transactions and balance, to add transactions and format date type react-native-datepicker and momentjs were used. To store the transactions items redux and redux-persist were used. To navigate between screens react-navigation was necessary.
-
 ## Contributing
 
 Would like to help this project? Found a bug that you would like to report or a missing feature that you would like to work on? Great! Check the [Contribution guide](./CONTRIBUTING.md) so you can start easily.
